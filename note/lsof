@@ -1,0 +1,12 @@
+# 查看打开文件的进程
+lsof /usr/local/php/sbin/php-fpm
+# 查看端口占用
+lsof -i :3306
+# 查看某个进程正打开的文件
+lsof -c mysqld
+# 根据某进程号查看打开的文件
+lsof -p 4832
+# 显示某用户正打开的文件
+lsof -u sophia
+# 根据进程名打印进程号
+lsof -tc sshd
