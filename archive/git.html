@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>git</title>
+    <link rel="stylesheet" href="../public/editor.md/css/editormd.min.css" />
+    <link rel="stylesheet" href="../public/editor.md/css/editormd.preview.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div id="editormd-view">
+<textarea style="display:none;">
+#### 生成公钥
+ssh-keygen -t rsa -C "git key"
+#### 克隆git仓库
+git clone git@github.com:apuppy/bash.git
+#### 修改文件后加入版本管理
+git add filePath
+git add . 或者 git add --all是全部纳入版本管理
+#### 提交到git版本管理
+git commit -m "注释"
+#### 提交到git，最终生效
+git push origin master
+#### git 设置用户名和邮箱信息
+命令行下: git config user.name "username" git config user.email "username@emailDomin"
+系统级：git config --global对应/etc/gitconfig
+用户级：git config --system对应系统~/.gitconfig
+仓库级：git config --local对应相应仓库下的gitconfig
+</textarea>
+</div>
+
+<script src="../public/static/js/jquery.js"></script>
+<script src="../public/editor.md/lib/marked.min.js"></script>
+<script src="../public/editor.md/editormd.min.js"></script>
+
+<!--<script src="../public/editor.md/lib/prettify.min.js"></script>
+<script src="../public/editor.md/lib/raphael.min.js"></script>
+<script src="../public/editor.md/lib/underscore.min.js"></script>
+<script src="../public/editor.md/lib/sequence-diagram.min.js"></script>
+<script src="../public/editor.md/lib/flowchart.min.js"></script>
+<script src="../public/editor.md/lib/jquery.flowchart.min.js"></script>-->
+
+<script type="text/javascript">
+    $(function() {
+        var editorMdView;
+        editorMdView = editormd.markdownToHTML("editormd-view", {
+            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true,  // 默认不解析
+        });
+    });
+</script>
+</body>
+</html>
