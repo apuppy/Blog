@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lsof</title>
+    <link rel="stylesheet" href="../public/editor.md/css/editormd.min.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div id="editormd">
+<textarea style="display:none;">
+#### 查看打开文件的进程
+lsof /usr/local/php/sbin/php-fpm
+#### 查看端口占用
+lsof -i :3306
+#### 查看某个进程正打开的文件
+lsof -c mysqld
+#### 根据某进程号查看打开的文件
+lsof -p 4832
+#### 显示某用户正打开的文件
+lsof -u sophia
+#### 根据进程名打印进程号
+lsof -tc sshd
+</textarea>
+</div>
+<script src="../public/static/js/jquery.js"></script>
+<script src="../public/editor.md/editormd.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+         var editor = editormd({
+            id   : "editormd",
+            path : "../public/editor.md/lib/",
+             autoHeight : true
+         });
+    });
+</script>
+</body>
+</html>

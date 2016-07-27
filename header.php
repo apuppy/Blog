@@ -14,7 +14,7 @@
 <div id="header">
     <a href="index.php">Home</a>
     <a href="nav.php">Nav</a>
-    <a href="#">Coding</a>
+    <a href="coding.php">Coding</a>
     <a href="#">Eating</a>
     <a href="#">BodyBuilding</a>
     <a href="#">Reading</a>

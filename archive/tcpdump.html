@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tcpdump</title>
+    <link rel="stylesheet" href="../public/editor.md/css/editormd.min.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div id="editormd">
+<textarea style="display:none;">
+#### tcpdump 抓mysql执行语句
+tcpdump -i eno1 -s 0 -l -w - dst  port 3306 | strings
+</textarea>
+</div>
+<script src="../public/static/js/jquery.js"></script>
+<script src="../public/editor.md/editormd.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd({
+            id   : "editormd",
+            path : "../public/editor.md/lib/",
+            autoHeight : true
+        });
+    });
+</script>
+</body>
+</html>

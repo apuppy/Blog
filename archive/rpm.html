@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rpm</title>
+    <link rel="stylesheet" href="../public/editor.md/css/editormd.min.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div id="editormd">
+<textarea style="display:none;">
+#### 安装
+rpm -ivh package.rpm
+#### 卸载
+rpm -e package.rpm
+#### 查询文件所属软件
+rpm -qf xxx.conf
+#### 查询软件安装的文件位置
+rpm -ql package-name
+#### 卸载时不卸载依赖
+rpm -e --nodeps package-name
+#### 查询软件包信息
+rpm -qi package-name
+</textarea>
+</div>
+<script src="../public/static/js/jquery.js"></script>
+<script src="../public/editor.md/editormd.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd({
+            id   : "editormd",
+            path : "../public/editor.md/lib/",
+            autoHeight : true
+        });
+    });
+</script>
+</body>
+</html>
