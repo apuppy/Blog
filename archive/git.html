@@ -12,8 +12,9 @@
 <body>
 <div id="editormd-view">
 <textarea style="display:none;">
+## git 客户端常用
 #### 生成公钥
-ssh-keygen -t rsa -C "git key"
+ssh-keygen -t rsa -C "git key" #会生成id.rsa.pub，将这个key追加到git服务端git用户的~/.ssh/authorized_keys中
 #### 克隆git仓库
 git clone git@github.com:apuppy/bash.git
 #### 修改文件后加入版本管理
@@ -28,6 +29,39 @@ git push origin master
 系统级：git config --global对应/etc/gitconfig
 用户级：git config --system对应系统~/.gitconfig
 仓库级：git config --local对应相应仓库下的gitconfig
+#### 获取git配置
+git config --list
+## git 服务端安装
+#### 添加用户、设置密码
+useradd git
+passwd git
+cd
+#### 认证
+mkdir .ssh && chmod 700 .ssh
+touch .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
+#### 为git仓库的使用者加公钥
+cat /tmp/id_rsa.kevin.pub >> ~/.ssh/authorized_keys
+cat /tmp/id_rsa.sophia.pub >> ~/.ssh/authorized_keys
+#### 创建仓库
+cd /opt/git
+mkdir project.git
+cd project.git
+git init --bare  # --bare意味着不加工作目录文件
+#### 其中一人将项目的最初版本提交到仓库服务端；例在kevin的电脑上
+cd myproject
+git init
+cat "read me file" > README
+git add .
+git commit -m 'initial commit'
+git remote add origin git@gitserver:/opt/git/project.git
+git push origin master
+#### 其它成员可以克隆啦,如sophia执行clone add commit push pull .etc
+git clone git@gitserver:/opt/git/project.git
+#### 禁止git登录shell
+cat /etc/shells
+which git-shell #通常是/usr/bin/git-shell
+cat "/usr/bin/git-shell" >> /etc/shells
+chsh git #输入"/usr/bin/git-shell"，git的shell更新成功
 </textarea>
 </div>
 
