@@ -17,6 +17,25 @@ svnadmin create /data/svnrepo
 svnserve -d  -r /data/svnrepo
 #### 检出项目
 svn co svn://localhost
+#### 编辑仓库下svnserve.conf文件
+anon-access = none      #匿名用户可读
+auth-access = write     #授权用户可写
+password-db = passwd    #指定账号分配管理文件
+authz-db = authz        #指定授权文件
+realm = /data/svnrepo   #认证空间名，版本库所在目录
+#### 编辑passwd文件，配置svn用户
+在[user]区域加账号和密码
+[users]
+kevin = kevin
+sophia = sophia
+alice = alice
+#### 编辑authz文件以分配权限
+在[group]区域加
+[groups]
+admin = kevin,sophia
+[/]
+@admin = rw
+alice = r
 </textarea>
 </div>
 <script src="../public/static/js/jquery.js"></script>
